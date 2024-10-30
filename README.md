@@ -29,8 +29,8 @@ BEDTools must be installed and accessible in your system PATH.
 
 ### Clone the repository and navigate to it:
 ```bash
-git clone https://github.com/yourusername/repository-name.git
-cd repository-name
+[git clone https://github.com/mohadesesd/evaluation_tasks.git](https://github.com/mohadesesd/evaluation_tasks.git)
+cd evaluation_tasks
 ```
 ### Run the script:
 
