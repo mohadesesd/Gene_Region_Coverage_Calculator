@@ -20,7 +20,7 @@ BEDTools must be installed and accessible in your system PATH.
 ### File Requirements
 
 - **GFF file**: A GFF file for gene annotations (e.g., Gencode).
-- **BED file**: A BED file with regions of interest (e.g., `output.bed`).
+- **BED file**: A BED file with regions of interest (e.g., `input.bed`).
 - **Gene List**: A list of gene symbols (e.g., `TP53`, `GAPDH`, `CDH1`).
 
 ---
@@ -37,7 +37,7 @@ The script will generate a CSV file named `coverage_results.csv` with coverage d
 
 | Argument      | Description                    | Example Value                                    |
 |---------------|--------------------------------|--------------------------------------------------|
-| `--bed_file`  | Path to the BED file           | `path/to/output.bed`                             |
+| `--bed_file`  | Path to the BED file           | `path/to/input.bed`                             |
 | `--gff_file`  | Path to the GFF annotation file| `path/to/gencode.v47lift37.basic.annotation.gff3`|
 | `--gene_list` | Comma-separated list of gene symbols | `TP53,GAPDH,CDH1`                               |
 
