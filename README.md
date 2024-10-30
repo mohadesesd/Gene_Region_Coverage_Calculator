@@ -29,13 +29,13 @@ BEDTools must be installed and accessible in your system PATH.
 
 ### Clone the repository and navigate to it:
 ```bash
-[git clone https://github.com/mohadesesd/evaluation_tasks.git](https://github.com/mohadesesd/evaluation_tasks.git)
+git clone https://github.com/mohadesesd/evaluation_tasks.git
 cd evaluation_tasks
 ```
 ### Run the script:
 
 ```bash
-python calculate_coverage.py --bed_file path/to/output.bed --gff_file path/to/gencode.v47lift37.basic.annotation.gff3 --gene_list TP53,GAPDH,CDH1
+python calculate_coverage.py --bed_file path/to/input.bed --gff_file path/to/gencode.v47lift37.basic.annotation.gff3 --gene_list TP53,GAPDH,CDH1
 ```
 ## Output
 
