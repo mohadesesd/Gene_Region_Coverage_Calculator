@@ -24,14 +24,6 @@ BEDTools must be installed and accessible in your system PATH.
 - **Gene List**: A list of gene symbols (e.g., `TP53`, `GAPDH`, `CDH1`).
 
 ---
-
-## Usage
-
-### Clone the repository and navigate to it:
-```bash
-git clone https://github.com/mohadesesd/evaluation_tasks.git
-cd evaluation_tasks
-```
 ### Run the script:
 
 ```bash
