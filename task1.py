@@ -15,7 +15,6 @@ def parse_gff(gff_file, gene_list):
                 continue
             fields = line.strip().split("\t")
             if fields[2] == "exon":
-                # Extract attributes using the provided logic
                 attributes = {item.split('=')[0]: item.split('=')[1] for item in fields[8].split(';') if '=' in item}
                 gene_name = attributes.get("gene_name") or attributes.get("Name")
                 if (gene_name in gene_list) and ('canonical' in attributes.get("tag")):
@@ -39,7 +38,7 @@ def calculate_introns(exons_df):
         # Calculate introns by subtracting the end of one exon from the start of the next
         for i in range(len(group) - 1):
             intron_start = group.iloc[i]['end']
-            intron_end = group.iloc[i + 1]['start']
+            intron_end = group.iloc[i + 1]['start'] + 1
             if intron_start < intron_end:  # Ensure valid intron
                 intron_data.append({
                     'chrom': group.iloc[i]['chrom'],
@@ -62,9 +61,7 @@ def calculate_coverage(bed_file, regions_df):
 
         # Calculate coverage
         covered = region_bed.coverage(bed)
-        coverage_fraction = 0
-        #for i in covered:
-        coverage_fraction += float(covered[0][-1]) * 100  # Convert to percentage
+        coverage_fraction = float(covered[0][-1]) * 100 # Convert fraction to percentage
         coverage_results.append({
             'gene': region['gene'],
             'region_type': region['type'],
@@ -77,8 +74,8 @@ def calculate_coverage(bed_file, regions_df):
 
 def main():
     parser = argparse.ArgumentParser(description='Calculate gene region coverage from BED and GFF files.')
-    parser.add_argument('--bed_file', required=True, help='Path to the BED file.')
-    parser.add_argument('--gff_file', required=True, help='Path to the GFF file.')
+    parser.add_argument('--bed_file', help='Path to the BED file.')
+    parser.add_argument('--gff_file', help='Path to the GFF file.')
     parser.add_argument('--gene_list', required=True, help="List of gene symbols (e.g., TP53,CDH1,GAPDH).")
     args = parser.parse_args()
     gene_list = parse_gene_list(args.gene_list)
