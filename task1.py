@@ -38,7 +38,7 @@ def calculate_introns(exons_df):
         # Calculate introns by subtracting the end of one exon from the start of the next
         for i in range(len(group) - 1):
             intron_start = group.iloc[i]['end']
-            intron_end = group.iloc[i + 1]['start'] + 1
+            intron_end = group.iloc[i + 1]['start'] - 1
             if intron_start < intron_end:  # Ensure valid intron
                 intron_data.append({
                     'chrom': group.iloc[i]['chrom'],
